@@ -1,0 +1,85 @@
+{
+  "name": "متتبع الأسعار الاحترافي | Professional Price Tracker",
+  "short_name": "Price Tracker Pro",
+  "description": "تطبيق احترافي لمتابعة أسعار العملات والمعادن والعملات الرقمية مع حاسبات متقدمة",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#6366f1",
+  "theme_color": "#6366f1",
+  "orientation": "portrait",
+  "scope": "./",
+  "lang": "ar",
+  "dir": "rtl",
+  "categories": ["finance", "business", "utilities"],
+  "icons": [
+    {
+      "src": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTkyIiBoZWlnaHQ9IjE5MiIgdmlld0JveD0iMCAwIDE5MiAxOTIiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIxOTIiIGhlaWdodD0iMTkyIiByeD0iMzAiIGZpbGw9IiM2MzY2ZjEiLz4KPHN2ZyB4PSI0MCIgeT0iNDAiIHdpZHRoPSIxMTIiIGhlaWdodD0iMTEyIiB2aWV3Qm94PSIwIDAgMjQgMjQiIGZpbGw9IiNmZmZmZmYiPgo8cGF0aCBkPSJNMTIgMkM2LjQ4IDIgMiA2LjQ4IDIgMTJzNC40OCAxMCAxMCAxMCAxMC0xMC00LjQ4LTEwUzE3LjUyIDIgMTIgMnptLTIgMTVsLTUtNSAxLjQxLTEuNDFMMTAgMTQuMTdsNy41OS03LjU5TDE5IDhsLTkgOXoiLz4KPC9zdmc+CjwvcmVjdD4KPHN2ZyB4PSI0OCIgeT0iNDgiIHdpZHRoPSI5NiIgaGVpZ2h0PSI5NiIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSIjZmZmZmYiPgo8cGF0aCBkPSJNMTIgMmwtMSAxaC00LjVDNS4xMiAzIDQgNC4xMiA0IDUuNXMxLjEyIDIuNSAyLjUgMi41SDdWOUg2LjVDNS4xMiA5IDQgMTAuMTIgNCAxMS41czEuMTIgMi41IDIuNSAyLjVIN1YxNWgyVjloNHY2aDRWOWgydjFoNFY2aDFWMi41djF6Ii8+Cjwvc3ZnPgo8L3N2Zz4KPC9zdmc+",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgdmlld0JveD0iMCAwIDUxMiA1MTIiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI1MTIiIGhlaWdodD0iNTEyIiByeD0iODAiIGZpbGw9IiM2MzY2ZjEiLz4KPHN2ZyB4PSIxMDAiIHk9IjEwMCIgd2lkdGg9IjMxMiIgaGVpZ2h0PSIzMTIiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0iI2ZmZmZmZiI+CjxwYXRoIGQ9Ik0xMiAybDMgN2g3bC01LjUgNC41TDE4IDIwTDEyIDEzIDYgMjBsMS41LTYuNUwzIDlIMTBMMTIgMnoiLz4KPC9zdmc+Cjwvc3ZnPg==",
+      "sizes": "512x512",
+      "type": "image/svg+xml"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIwIiBoZWlnaHQ9IjU2OCIgdmlld0JveD0iMCAwIDMyMCA1NjgiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIzMjAiIGhlaWdodD0iNTY4IiBmaWxsPSIjNmM2NmYxIi8+Cjx0ZXh0IHg9IjE2MCIgeT0iMTAwIiBmaWxsPSIjZmZmZmYiIGZvbnQtc2l6ZT0iMjQiIGZvbnQtZmFtaWx5PSJBcmlhbCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+tmF2KrYqtio2Lkg2KfZhNij2LPYudin2LE8L3RleHQ+Cjx0ZXh0IHg9IjE2MCIgeT0iMjAwIiBmaWxsPSIjZmZmZmYiIGZvbnQtc2l6ZT0iMTQiIGZvbnQtZmFtaWx5PSJBcmlhbCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+tmF2KrYp9io2LnYqSDYp9iz2LnYp9ixINin2YTYudmF2YTYp9iqINmI2KfZhNmF2LnYp9iv2YY8L3RleHQ+Cjx0ZXh0IHg9IjE2MCIgeT0iMzAwIiBmaWxsPSIjZmZmZmYiIGZvbnQtc2l6ZT0iMTgiIGZvbnQtZmFtaWx5PSJBcmlhbCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+tmF2K8g2KrYrdiv2YrYq9iSINm12YjYsdipPC90ZXh0Pgo8L3N2Zz4=",
+      "sizes": "320x568",
+      "type": "image/svg+xml",
+      "form_factor": "narrow"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "العملات",
+      "short_name": "العملات",
+      "description": "عرض أسعار العملات",
+      "url": "./?tab=currencies",
+      "icons": [
+        {
+          "src": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEyIDJDNi40OCAyIDIgNi40OCAyIDEyczQuNDggMTAgMTAgMTAgMTAtMTAtNC40OC0xMFMxNy41MiAyIDEyIDJ6bS0yIDE1bC01LTUgMS40MS0xLjQxTDEwIDE0LjE3bDcuNTktNy41OUwxOSA4bC05IDl6IiBmaWxsPSIjZmZmZmYiLz4KPC9zdmc+",
+          "sizes": "32x32"
+        }
+      ]
+    },
+    {
+      "name": "المعادن",
+      "short_name": "المعادن",
+      "description": "عرض أسعار المعادن الثمينة",
+      "url": "./?tab=metals",
+      "icons": [
+        {
+          "src": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEyIDJsMyA3aDdsLTUuNSA0LjVMMTggMjBMMTIgMTMgNiAyMGwxLjUtNi41TDMgOWg3TDEyIDJ6IiBmaWxsPSIjZmZhNTAyIi8+Cjwvc3ZnPg==",
+          "sizes": "32x32"
+        }
+      ]
+    },
+    {
+      "name": "العملات الرقمية",
+      "short_name": "كريبتو",
+      "description": "عرض أسعار العملات الرقمية",
+      "url": "./?tab=crypto",
+      "icons": [
+        {
+          "src": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEyIDJDNi40OCAyIDIgNi40OCAyIDEyczQuNDggMTAgMTAgMTAgMTAtMTAtNC40OC0xMFMxNy41MiAyIDEyIDJ6bTE1LjV2MUM0IDE1Ljc4IDQuMjIgMTYgNC41IDE2SDE3djJoMVY5aDR2Nmg0VjlIMjN2LTFoNFY2aDF2LTFoNFY2aDF2LTFoNFY2aDF2LTFoNFYySDkuNXYxSDZ2LTFoNHYyaDF2MmgxVjV2LTFoLTRWNmgxdjV2LTFoLTRWMmgxdjV2LTFoLTRWMmgxVjV2LTFoLTRWMmgxVjV2LTFoLTN2MmgtNWwxIDF6TTggOXYtMWg2djFING0wLTVoNnYxSDR6IiBmaWxsPSIjZmY5NTAwIi8+Cjwvc3ZnPg==",
+          "sizes": "32x32"
+        }
+      ]
+    }
+  ],
+  "related_applications": [],
+  "prefer_related_applications": false,
+  "share_target": {
+    "action": "./share",
+    "method": "POST",
+    "enctype": "multipart/form-data",
+    "params": {
+      "title": "title",
+      "text": "text",
+      "url": "url"
+    }
+  }
+}

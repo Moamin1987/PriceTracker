@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-translate="appTitle">متتبع الأسعار الاحترافي | Professional Price Tracker</title>
+    <link rel="manifest" href="./manifest.json">
+    <meta name="theme-color" content="#6366f1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="description" data-translate="appDescription">تطبيق احترافي لمتابعة أسعار العملات والمعادن والعملات الرقمية">
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <!-- Status Bar -->
+    <div class="status-bar" id="statusBar">
+        <span id="statusText">🟢 <span data-translate="connected">متصل</span> | <span data-translate="lastUpdate">آخر تحديث</span>: <span id="lastUpdate">--</span></span>
+    </div>
+    
+    <div class="container">
+        <!-- Modern Header -->
+        <header class="modern-header">
+            <div class="header-gradient"></div>
+            <div class="header-content">
+                <div class="header-main">
+                    <div class="app-logo">
+                        <div class="logo-icon">📊</div>
+                        <div>
+                            <h1 data-translate="appTitle">متتبع الأسعار الاحترافي</h1>
+                            <p data-translate="appSubtitle">متابعة حية لأسعار الأسواق المالية العالمية</p>
+                        </div>
+                    </div>
+                    <div class="header-stats">
+                        <div class="stat-item">
+                            <div class="stat-value" id="totalCurrencies">13+</div>
+                            <div class="stat-label" data-translate="currencies">العملات</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value" id="totalCrypto">10+</div>
+                            <div class="stat-label" data-translate="crypto">العملات الرقمية</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value" id="updateFrequency">5</div>
+                            <div class="stat-label" data-translate="minutes">دقائق</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        
+        <!-- Modern News Ticker -->
+        <div class="modern-ticker" id="newsTicker">
+            <div class="ticker-track">
+                <div class="ticker-item" data-translate="ticker1">📈 متتبع الأسعار الاحترافي</div>
+                <div class="ticker-item" data-translate="ticker2">متابعة حية لأسعار الأسواق المالية العالمية</div>
+                <div class="ticker-item" data-translate="ticker3">بيانات حقيقية 100%</div>
+                <div class="ticker-item" data-translate="ticker4">تحديث كل 5 دقائق</div>
+                <div class="ticker-item">الذهب: $<span id="goldPriceTicker">--</span></div>
+                <div class="ticker-item">الفضة: $<span id="silverPriceTicker">--</span></div>
+                <div class="ticker-item">البيتكوين: $<span id="btcPriceTicker">--</span></div>
+            </div>
+        </div>
+        
+        <!-- Modern Navigation -->
+        <nav class="modern-nav">
+            <div class="nav-container">
+                <button class="nav-btn active" data-tab="currencies" onclick="switchTab('currencies')">
+                    <span class="nav-icon">💱</span>
+                    <span class="nav-text" data-translate="currencies">العملات</span>
+                </button>
+                <button class="nav-btn" data-tab="metals" onclick="switchTab('metals')">
+                    <span class="nav-icon">🥇</span>
+                    <span class="nav-text" data-translate="metals">المعادن</span>
+                </button>
+                <button class="nav-btn" data-tab="crypto" onclick="switchTab('crypto')">
+                    <span class="nav-icon">₿</span>
+                    <span class="nav-text" data-translate="crypto">العملات الرقمية</span>
+                </button>
+                <button class="nav-btn" data-tab="goldCalculator" onclick="switchTab('goldCalculator')">
+                    <span class="nav-icon">🧮</span>
+                    <span class="nav-text" data-translate="goldCalculator">حاسبة الذهب</span>
+                </button>
+                <button class="nav-btn" data-tab="zakatCalculator" onclick="switchTab('zakatCalculator')">
+                    <span class="nav-icon">💳</span>
+                    <span class="nav-text" data-translate="zakatCalculator">زكاة المال</span>
+                </button>
+                <button class="nav-btn" data-tab="settings" onclick="switchTab('settings')">
+                    <span class="nav-icon">⚙️</span>
+                    <span class="nav-text" data-translate="settings">الإعدادات</span>
+                </button>
+            </div>
+        </nav>
+        
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Currencies Section -->
+            <section class="content-section active" id="currencies">
+                <div class="section-header">
+                    <h2 data-translate="currencies">العملات</h2>
+                    <p><span data-translate="lastUpdate">آخر تحديث</span>: <span id="currencyUpdateTime">--</span></p>
+                </div>
+                <div class="cards-grid modern-grid" id="currenciesGrid">
+                    <!-- سيتم ملؤه بواسطة JavaScript -->
+                </div>
+            </section>
+            
+            <!-- Metals Section -->
+            <section class="content-section" id="metals">
+                <div class="section-header">
+                    <h2 data-translate="metals">المعادن</h2>
+                    <p><span data-translate="lastUpdate">آخر تحديث</span>: <span id="metalsUpdateTime">--</span></p>
+                </div>
+                <div class="cards-grid modern-grid" id="metalsGrid">
+                    <!-- سيتم ملؤه بواسطة JavaScript -->
+                </div>
+            </section>
+            
+            <!-- Crypto Section -->
+            <section class="content-section" id="crypto">
+                <div class="section-header">
+                    <h2 data-translate="crypto">العملات الرقمية</h2>
+                    <p><span data-translate="lastUpdate">آخر تحديث</span>: <span id="cryptoUpdateTime">--</span></p>
+                </div>
+                <div class="cards-grid modern-grid" id="cryptoGrid">
+                    <!-- سيتم ملؤه بواسطة JavaScript -->
+                </div>
+            </section>
+            
+            <!-- Gold Calculator Section -->
+            <section class="content-section" id="goldCalculator">
+                <div class="calculator-section">
+                    <div class="section-header">
+                        <h2 data-translate="goldCalculator">حاسبة الذهب</h2>
+                        <p data-translate="goldCalculatorDesc">حساب قيمة الذهب حسب العيار والوزن</p>
+                    </div>
+                    <div class="modern-calculator">
+                        <div class="calc-row">
+                            <div class="calc-input-group">
+                                <label data-translate="country">الدولة</label>
+                                <select id="goldCountry">
+                                    <option value="EGP">مصر (جنيه)</option>
+                                    <option value="SAR">السعودية (ريال)</option>
+                                    <option value="AED">الإمارات (درهم)</option>
+                                    <option value="KWD">الكويت (دينار)</option>
+                                    <option value="QAR">قطر (ريال)</option>
+                                    <option value="BHD">البحرين (دينار)</option>
+                                    <option value="OMR">عمان (ريال)</option>
+                                    <option value="JOD">الأردن (دينار)</option>
+                                    <option value="USD">أمريكا (دولار)</option>
+                                    <option value="EUR">أوروبا (يورو)</option>
+                                    <option value="GBP">بريطانيا (جنيه)</option>
+                                </select>
+                            </div>
+                            <div class="calc-input-group">
+                                <label data-translate="karat">العيار</label>
+                                <select id="goldKarat">
+                                    <option value="24" data-translate="karat24">عيار 24 (ذهب نقي)</option>
+                                    <option value="22" data-translate="karat22">عيار 22</option>
+                                    <option value="21" data-translate="karat21">عيار 21</option>
+                                    <option value="18" data-translate="karat18">عيار 18</option>
+                                    <option value="14" data-translate="karat14">عيار 14</option>
+                                    <option value="10" data-translate="karat10">عيار 10</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="calc-row">
+                            <div class="calc-input-group">
+                                <label data-translate="weight">الوزن (جرام)</label>
+                                <input type="number" id="goldWeight" data-translate-placeholder="enterWeight" placeholder="أدخل الوزن بالجرام" step="0.01" value="10">
+                            </div>
+                            <div class="calc-input-group">
+                                <label data-translate="globalGoldPrice">سعر الذهب العالمي (دولار/أونصة)</label>
+                                <input type="number" id="globalGoldPrice" readonly>
+                            </div>
+                        </div>
+                        <button class="modern-btn primary-btn" onclick="calculateGold()">
+                            <span data-translate="calculate">احسب القيمة</span>
+                        </button>
+                        <div class="calc-result" id="goldResult" style="display: none;">
+                            <h3 data-translate="result">النتيجة</h3>
+                            <div class="result-details">
+                                <div class="result-item">
+                                    <span class="result-label" data-translate="valueInUSD">القيمة بالدولار:</span>
+                                    <span class="result-value" id="goldValueUSD">--</span>
+                                </div>
+                                <div class="result-item">
+                                    <span class="result-label" data-translate="valueInLocal">القيمة بالعملة المحلية:</span>
+                                    <span class="result-value" id="goldValueLocal">--</span>
+                                </div>
+                                <div class="result-item">
+                                    <span class="result-label" data-translate="pricePerGram">سعر الجرام:</span>
+                                    <span class="result-value" id="pricePerGram">--</span>
+                                </div>
+                            </div>
+                            <div id="goldDetails"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Zakat Calculator Section -->
+            <section class="content-section" id="zakatCalculator">
+                <div class="calculator-section">
+                    <div class="section-header">
+                        <h2 data-translate="zakatCalculator">زكاة المال</h2>
+                        <p data-translate="zakatCalculatorDesc">حساب زكاة الذهب والفضة والعملات</p>
+                    </div>
+                    <div class="modern-calculator">
+                        <div class="calc-row">
+                            <div class="calc-input-group">
+                                <label data-translate="type">نوع المال</label>
+                                <select id="zakatType" onchange="updateZakatFields()">
+                                    <option value="gold" data-translate="gold">ذهب</option>
+                                    <option value="silver" data-translate="silver">فضة</option>
+                                    <option value="currency" data-translate="currency">عملات ورقية</option>
+                                    <option value="crypto" data-translate="crypto">عملات رقمية</option>
+                                </select>
+                            </div>
+                            <div class="calc-input-group">
+                                <label data-translate="currency">العملة</label>
+                                <select id="zakatCurrency">
+                                    <option value="USD">دولار أمريكي</option>
+                                    <option value="EGP">جنيه مصري</option>
+                                    <option value="SAR">ريال سعودي</option>
+                                    <option value="AED">درهم إماراتي</option>
+                                    <option value="EUR">يورو</option>
+                                    <option value="GBP">جنيه إسترليني</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="calc-row">
+                            <div class="calc-input-group">
+                                <label id="zakatAmountLabel" data-translate="weight">الوزن (جرام)</label>
+                                <input type="number" id="zakatAmount" data-translate-placeholder="enterValue" placeholder="أدخل القيمة" step="0.01">
+                            </div>
+                            <div class="calc-input-group">
+                                <label data-translate="currentPrice">السعر الحالي</label>
+                                <input type="number" id="zakatPrice" readonly>
+                            </div>
+                        </div>
+                        <button class="modern-btn primary-btn" onclick="calculateZakat()">
+                            <span data-translate="calculateZakat">احسب الزكاة</span>
+                        </button>
+                        <div class="calc-result" id="zakatResult" style="display: none;">
+                            <h3 data-translate="result">النتيجة</h3>
+                            <div class="result-details">
+                                <div class="result-item">
+                                    <span class="result-label" data-translate="totalValue">القيمة الإجمالية:</span>
+                                    <span class="result-value" id="zakatTotalValue">--</span>
+                                </div>
+                                <div class="result-item">
+                                    <span class="result-label" data-translate="nisab">نصاب الزكاة:</span>
+                                    <span class="result-value" id="zakatNisab">--</span>
+                                </div>
+                                <div class="result-item">
+                                    <span class="result-label" data-translate="zakatAmount">قيمة الزكاة (2.5%):</span>
+                                    <span class="result-value" id="zakatAmountDue">--</span>
+                                </div>
+                            </div>
+                            <div id="zakatDetails"></div>
+                            <div class="zakat-status" id="zakatStatus">
+                                <!-- سيتم تحديده بواسطة JavaScript -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Settings Section -->
+            <section class="content-section" id="settings">
+                <div class="modern-settings">
+                    <h3 data-translate="settings">الإعدادات</h3>
+                    
+                    <!-- Language Settings -->
+                    <div class="setting-item">
+                        <div class="setting-info">
+                            <strong data-translate="language">اللغة</strong>
+                            <p data-translate="languageDesc">اختر لغة التطبيق</p>
+                        </div>
+                        <select id="languageSelect" onchange="changeLanguage()" class="modern-select">
+                            <option value="ar">العربية</option>
+                            <option value="en">English</option>
+                            <option value="fr">Français</option>
+                            <option value="es">Español</option>
+                            <option value="de">Deutsch</option>
+                            <option value="tr">Türkçe</option>
+                            <option value="zh">中文</option>
+                            <option value="hi">हिन्दी</option>
+                        </select>
+                    </div>
+                    
+                    <!-- Dark Mode -->
+                    <div class="setting-item">
+                        <div class="setting-info">
+                            <strong data-translate="darkMode">الوضع المظلم</strong>
+                            <p data-translate="darkModeDesc">تفعيل الوضع المظلم</p>
+                        </div>
+                        <div class="modern-toggle" onclick="toggleSetting('darkMode')">
+                            <div class="toggle-slider"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Subscription Status -->
+                    <div class="setting-item">
+                        <div class="setting-info">
+                            <strong data-translate="subscription">الاشتراك</strong>
+                            <p id="subscriptionStatus" data-translate="free">مجاني</p>
+                        </div>
+                        <button class="modern-btn accent-btn" id="subscriptionBtn" onclick="showSubscriptionModal()">
+                            <span data-translate="upgrade">🚀 ترقية</span>
+                        </button>
+                    </div>
+                    
+                    <!-- Price Verification -->
+                    <div class="setting-item">
+                        <div class="setting-info">
+                            <strong data-translate="verifyPrices">التحقق من دقة الأسعار</strong>
+                            <p data-translate="verifyPricesDesc">مقارنة أسعارنا بمصادر موثوقة</p>
+                        </div>
+                        <button class="modern-btn secondary-btn" onclick="runVerification()">
+                            <span>🔍 تحقق الآن</span>
+                        </button>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+    
+    <!-- Hidden Elements -->
+    <div id="userUsageDisplay"></div>
+    <div id="serviceMonitor"></div>
+    
+    <!-- Ad Banner -->
+    <div class="modern-ad" id="adBanner">
+        <button class="ad-close" onclick="closeAd()">&times;</button>
+        <div class="ad-content">
+            <strong id="adTitle" data-translate="adTitle">🎯 دعمنا لتطوير التطبيق</strong><br>
+            <span id="adContent" data-translate="adContent">اشترك الآن للحصول على تحليلات متقدمة وإشعارات فورية!</span>
+        </div>
+    </div>
+    
+    <script src="./app.js"></script>
+    <script src="./goldCalculator.js"></script>
+    <script src="./zakatCalculator.js"></script>
+</body>
+</html>
