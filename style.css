@@ -898,6 +898,26 @@ body {
   100% { transform: rotate(360deg); }
 }
 
+/* Empty State */
+.empty-state {
+  text-align: center;
+  padding: var(--spacing-xl);
+  color: var(--text-secondary);
+}
+
+.empty-state i {
+  font-size: 3rem;
+  margin-bottom: var(--spacing-md);
+  color: var(--primary);
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+  40% { transform: translateY(-10px); }
+  60% { transform: translateY(-5px); }
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
   .container {
@@ -950,6 +970,16 @@ body {
   .modern-calculator {
     padding: var(--spacing-lg);
   }
+  
+  .setting-item {
+    flex-direction: column;
+    gap: var(--spacing-md);
+    align-items: flex-start;
+  }
+  
+  .modern-select {
+    width: 100%;
+  }
 }
 
 /* RTL Support */
@@ -963,6 +993,15 @@ body {
 
 [dir="rtl"] .result-item {
   direction: rtl;
+}
+
+[dir="rtl"] .modern-toggle .toggle-slider {
+  left: auto;
+  right: 2px;
+}
+
+[dir="rtl"] .modern-toggle.active .toggle-slider {
+  transform: translateX(-24px);
 }
 
 /* Animations */
@@ -1015,4 +1054,124 @@ body {
     border: 1px solid #ddd !important;
     break-inside: avoid;
   }
+}
+
+/* Android-style elements */
+.android-card {
+  background: linear-gradient(135deg, #ffffff, #f8fafc);
+  border-radius: 16px;
+  padding: 20px;
+  margin: 15px 0;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+  border: 1px solid #e2e8f0;
+  transition: all 0.3s ease;
+}
+
+.android-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+}
+
+.gold-card {
+  background: linear-gradient(135deg, #fbbf24, #f59e0b);
+  color: #78350f;
+}
+
+.silver-card {
+  background: linear-gradient(135deg, #e5e7eb, #9ca3af);
+  color: #374151;
+}
+
+.currency-card {
+  background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+  color: white;
+}
+
+.android-input {
+  background: white;
+  border: 2px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 16px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.android-input:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+  outline: none;
+}
+
+.android-select {
+  background: white;
+  border: 2px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 16px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  background-size: 16px;
+  padding-right: 48px;
+}
+
+.android-select:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+  outline: none;
+}
+
+.android-btn {
+  background: linear-gradient(135deg, #10b981, #059669);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  padding: 16px 32px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+  margin: 20px 0;
+}
+
+.android-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(16, 185, 129, 0.4);
+}
+
+/* Success animation */
+.success-animation {
+  animation: successPulse 0.6s ease;
+}
+
+@keyframes successPulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+/* Price update animation */
+.price-update {
+  animation: priceUpdate 1.2s ease;
+  background: linear-gradient(45deg, rgba(99, 102, 241, 0.1), rgba(99, 102, 241, 0.3), rgba(99, 102, 241, 0.1));
+  background-size: 200% 200%;
+  animation: priceUpdate 1.2s ease, gradientShift 2s ease infinite;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes priceUpdate {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.02); }
+  100% { transform: scale(1); }
 }
