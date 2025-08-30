@@ -5,7 +5,7 @@ async function calculateGold() {
     const weight = parseFloat(document.getElementById('goldWeight').value) || 0;
     
     if (weight <= 0) {
-        alert(t('invalidWeight'));
+        alert('الرجاء إدخال وزن صحيح');
         return;
     }
     
@@ -34,7 +34,7 @@ async function calculateGold() {
         // Display results with high precision
         document.getElementById('goldValueUSD').textContent = `$${valueUSD.toFixed(4)}`;
         document.getElementById('goldValueLocal').textContent = `${getCurrencySymbol(country)}${valueLocal.toFixed(4)}`;
-        document.getElementById('pricePerGram').textContent = `${getCurrencySymbol(country)}${pricePerGramLocal.toFixed(4)} ${t('perGram')}`;
+        document.getElementById('pricePerGram').textContent = `${getCurrencySymbol(country)}${pricePerGramLocal.toFixed(4)} للجرام`;
         
         // Add detailed breakdown
         const detailsContainer = document.getElementById('goldDetails');
@@ -42,24 +42,42 @@ async function calculateGold() {
             const details = document.createElement('div');
             details.id = 'goldDetails';
             details.className = 'calculation-details';
+            details.innerHTML = `
+                <div class="detail-item">
+                    <span>نقاء الذهب:</span>
+                    <span>${((karat/24)*100).toFixed(1)}%</span>
+                </div>
+                <div class="detail-item">
+                    <span>وزن الذهب النقي:</span>
+                    <span>${pureGoldContent.toFixed(4)} جرام</span>
+                </div>
+                <div class="detail-item">
+                    <span>سعر الأونصة العالمي:</span>
+                    <span>$${globalGoldPrice.toFixed(2)}</span>
+                </div>
+                <div class="detail-item">
+                    <span>سعر الجرام العالمي:</span>
+                    <span>$${pricePerGramUSD.toFixed(4)}</span>
+                </div>
+            `;
             document.getElementById('goldResult').appendChild(details);
         } else {
             // Update existing details
             detailsContainer.innerHTML = `
                 <div class="detail-item">
-                    <span>${t('goldPurity')}:</span>
+                    <span>نقاء الذهب:</span>
                     <span>${((karat/24)*100).toFixed(1)}%</span>
                 </div>
                 <div class="detail-item">
-                    <span>${t('pureGoldWeight')}:</span>
-                    <span>${pureGoldContent.toFixed(4)} ${t('grams')}</span>
+                    <span>وزن الذهب النقي:</span>
+                    <span>${pureGoldContent.toFixed(4)} جرام</span>
                 </div>
                 <div class="detail-item">
-                    <span>${t('globalOuncePrice')}:</span>
+                    <span>سعر الأونصة العالمي:</span>
                     <span>$${globalGoldPrice.toFixed(2)}</span>
                 </div>
                 <div class="detail-item">
-                    <span>${t('globalGramPrice')}:</span>
+                    <span>سعر الجرام العالمي:</span>
                     <span>$${pricePerGramUSD.toFixed(4)}</span>
                 </div>
             `;
@@ -70,7 +88,7 @@ async function calculateGold() {
         
     } catch (error) {
         console.error('Error calculating gold:', error);
-        alert(t('calculationError'));
+        alert('حدث خطأ في الحساب. يرجى المحاولة مرة أخرى.');
     }
 }
 
