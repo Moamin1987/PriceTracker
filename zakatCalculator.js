@@ -8,26 +8,26 @@ function updateZakatFields() {
     
     switch(zakatType) {
         case 'gold':
-            amountLabel.textContent = t('weight');
-            zakatAmount.placeholder = t('enterWeight');
+            amountLabel.textContent = 'الوزن (جرام)';
+            zakatAmount.placeholder = 'أدخل وزن الذهب بالجرام';
             zakatAmount.value = '';
             updateZakatPrice('XAU', zakatCurrency);
             break;
         case 'silver':
-            amountLabel.textContent = t('weight');
-            zakatAmount.placeholder = t('enterWeight');
+            amountLabel.textContent = 'الوزن (جرام)';
+            zakatAmount.placeholder = 'أدخل وزن الفضة بالجرام';
             zakatAmount.value = '';
             updateZakatPrice('XAG', zakatCurrency);
             break;
         case 'currency':
-            amountLabel.textContent = t('amount');
-            zakatAmount.placeholder = t('enterValue');
+            amountLabel.textContent = 'المبلغ';
+            zakatAmount.placeholder = 'أدخل المبلغ بالعملة';
             zakatAmount.value = '';
             zakatPrice.value = '1';
             break;
         case 'crypto':
-            amountLabel.textContent = t('amount');
-            zakatAmount.placeholder = t('enterValue');
+            amountLabel.textContent = 'الكمية';
+            zakatAmount.placeholder = 'أدخل كمية العملة الرقمية';
             zakatAmount.value = '';
             updateZakatPrice('BTC', zakatCurrency);
             break;
@@ -67,7 +67,7 @@ function calculateZakat() {
     const price = parseFloat(document.getElementById('zakatPrice').value) || 1;
     
     if (amount <= 0) {
-        alert(t('invalidValue'));
+        alert('الرجاء إدخال قيمة صحيحة');
         return;
     }
     
@@ -82,16 +82,16 @@ function calculateZakat() {
         switch(zakatType) {
             case 'gold':
                 nisab = 85 * (metalsPrices.XAU?.price || 2000) / 31.1034768; // 85 grams of gold
-                nisabDescription = t('goldNisab');
+                nisabDescription = '85 جرام ذهب';
                 break;
             case 'silver':
                 nisab = 595 * (metalsPrices.XAG?.price || 25) / 31.1034768; // 595 grams of silver
-                nisabDescription = t('silverNisab');
+                nisabDescription = '595 جرام فضة';
                 break;
             case 'currency':
             case 'crypto':
                 nisab = 85 * (metalsPrices.XAU?.price || 2000) / 31.1034768; // Equivalent to 85 grams of gold
-                nisabDescription = t('goldEquivalentNisab');
+                nisabDescription = 'ما يعادل 85 جرام ذهب';
                 break;
         }
         
@@ -121,15 +121,15 @@ function calculateZakat() {
         
         detailsContainer.innerHTML = `
             <div class="detail-item">
-                <span>${t('nisabPercentage')}:</span>
+                <span>النسبة المئوية للنصاب:</span>
                 <span>${nisabPercentage.toFixed(1)}%</span>
             </div>
             <div class="detail-item">
-                <span>${t('zakatStatus')}:</span>
-                <span>${totalValue >= nisabInLocalCurrency ? t('eligible') : t('notEligible')}</span>
+                <span>حالة الزكاة:</span>
+                <span>${totalValue >= nisabInLocalCurrency ? 'مستحق' : 'غير مستحق'}</span>
             </div>
             <div class="detail-item">
-                <span>${t('nisabInUSD')}:</span>
+                <span>نصاب الزكاة بالدولار:</span>
                 <span>$${nisab.toFixed(2)}</span>
             </div>
         `;
@@ -145,8 +145,8 @@ function calculateZakat() {
             statusDiv.innerHTML = `
                 <div class="status-icon">✅</div>
                 <div class="status-text">
-                    <strong>${t('zakatEligible')}</strong>
-                    <div class="status-subtext">${t('valueExceedsNisab')}</div>
+                    <strong>مستحق للزكاة - الحمد لله</strong>
+                    <div class="status-subtext">القيمة تتجاوز النصاب الشرعي</div>
                 </div>
             `;
         } else {
@@ -154,8 +154,8 @@ function calculateZakat() {
             statusDiv.innerHTML = `
                 <div class="status-icon">⚠️</div>
                 <div class="status-text">
-                    <strong>${t('zakatNotEligible')}</strong>
-                    <div class="status-subtext">${t('valueBelowNisab', {percentage: nisabPercentage.toFixed(1)})}</div>
+                    <strong>غير مستحق للزكاة</strong>
+                    <div class="status-subtext">القيمة أقل من النصاب (${nisabPercentage.toFixed(1)}% من النصاب)</div>
                 </div>
             `;
         }
@@ -168,7 +168,7 @@ function calculateZakat() {
         
     } catch (error) {
         console.error('Error calculating zakat:', error);
-        alert(t('calculationError'));
+        alert('حدث خطأ في الحساب. يرجى المحاولة مرة أخرى.');
     }
 }
 
